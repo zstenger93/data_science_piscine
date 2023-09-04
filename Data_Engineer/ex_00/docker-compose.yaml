@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: zstenger
+      POSTGRES_PASSWORD: msp
+      POSTGRES_DB: piscineds
+    ports:
+      - "5432:5432"
