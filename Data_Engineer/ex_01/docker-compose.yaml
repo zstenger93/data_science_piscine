@@ -3,9 +3,6 @@ services:
   postgres:
     image: postgres
     container_name: postgres
-    build:
-      context: ../
-      dockerfile: ex_00/Dockerfile
     environment:
       POSTGRES_USER: zstenger
       POSTGRES_PASSWORD: msp
@@ -18,9 +15,6 @@ services:
   pgadmin:
       image: dpage/pgadmin4
       container_name: pgadmin
-      build:
-        context: ./
-        dockerfile: Dockerfile
       environment:
         PGADMIN_DEFAULT_EMAIL: admin@admin.com
         PGADMIN_DEFAULT_PASSWORD: adminpw
