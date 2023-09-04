@@ -3,6 +3,9 @@ services:
   postgres:
     image: postgres
     container_name: postgres
+    build:
+      context: ./
+      dockerfile: Dockerfile
     environment:
       POSTGRES_USER: zstenger
       POSTGRES_PASSWORD: msp

@@ -1,0 +1,7 @@
+FROM postgres
+
+ENV POSTGRES_USER=zstenger
+ENV POSTGRES_PASSWORD=msp
+ENV POSTGRES_DB=piscineds
+
+EXPOSE 5432
