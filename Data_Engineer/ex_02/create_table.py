@@ -18,8 +18,8 @@ def load(path, tableName):
         engine = create_engine("postgresql://zstenger:msp@localhost:5432/piscineds")
         data.to_sql(tableName, engine, index=False, dtype=data_types)
         engine.dispose()
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    except Exception as error:
+        print(f"An error occurred: {error}")
 
 
 if __name__ == "__main__":
