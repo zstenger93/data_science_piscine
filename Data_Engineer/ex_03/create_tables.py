@@ -1,5 +1,4 @@
 import psycopg2
-from psycopg2 import sql
 
 dbname = "piscineds"
 user = "zstenger"
@@ -7,7 +6,7 @@ password = "msp"
 host = "localhost"
 port = "5432"
 
-with open("test.sql", "r") as sql_file:
+with open("create_tables.sql", "r") as sql_file:
     sql_script = sql_file.read()
 
 try:

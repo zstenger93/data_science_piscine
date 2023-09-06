@@ -11,7 +11,6 @@ port = "5432"
 with open("merge_tables.sql", "r") as sql_file:
     sql_script = sql_file.read()
 
-# Connect to the PostgreSQL database
 conn = psycopg2.connect(
     dbname=dbname,
     user=user,
@@ -20,7 +19,6 @@ conn = psycopg2.connect(
     port=port
 )
 
-# Open a cursor to execute SQL commands
 cursor = conn.cursor()
 cursor.execute(sql_script)
 conn.commit()
