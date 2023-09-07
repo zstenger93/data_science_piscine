@@ -57,3 +57,7 @@ DROP TABLE "data_2022_oct";
 ```
 SELECT COUNT(*) FROM customers;
 ```
+
+list tables \dt \d
+
+quit \q
