@@ -1,5 +1,11 @@
 # data_science_piscine
 
+## Day 0 Data Engineer
+
+
+
+# A few alias to make things smooth and faster, or at least faster than python
+
 ## up alias as:
 
 ```
