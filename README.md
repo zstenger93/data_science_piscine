@@ -29,3 +29,15 @@ DROP TABLE "data_2022_oct";
 ```
 SELECT COUNT(*) FROM customers;
 ```
+
+
+select * from customers as c
+INNER JOIN 
+(select 
+product_id, COALESCE(MAX(category_id), NULL) as category_id,
+COALESCE(MAX(category_code), NULL) as category_code,
+COALESCE(MAX(brand), NULL) as brand
+from items
+GROUP by product_id )
+as i
+ON c.product_id=i.product_id
