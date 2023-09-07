@@ -22,6 +22,10 @@ ex 02 we remove all the duplicate rows from table
 
 ex 03 we merge the items table into the customers table but be careful, the items table has duplicates as well, so you should group those duplicates before adding the values to the customers table with the matching id's
 
+## Day 2 Data Analyst
+
+ex 00 we create a pie chart from the event types, the pdf asks to use the data without removing the duplicates which makes no sense so we used the cleared datatable
+
 # A few alias to make things smooth and faster, or at least faster than python
 
 ## up alias as:
