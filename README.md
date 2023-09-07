@@ -12,6 +12,16 @@ ex 03 is the same as 02 but we need to create all the tables from the provided c
 
 ex 04 we create the items table from the corresponding csv file
 
+## Day 1 Data Warehouse
+
+ex 00 create all the tables again from previous day with one extra from this subject.
+
+ex 01 we merge all data from 2022 oct until 2023 feb into a customers table keeping all the duplicates
+
+ex 02 we remove all the duplicate rows from table
+
+ex 03 we merge the items table into the customers table but be careful, the items table has duplicates as well, so you should group those duplicates before adding the values to the customers table with the matching id's
+
 # A few alias to make things smooth and faster, or at least faster than python
 
 ## up alias as:
