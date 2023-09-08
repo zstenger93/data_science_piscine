@@ -20,9 +20,10 @@ try:
     print("Connected to postgres!")
     cursor = conn.cursor()
     cursor.execute(sql_script)
-    data = cursor.fetchall()
-    conn.commit()
     print("SQL script executed successfully!")
+    data = cursor.fetchall()
+    print("Data has been fetched from the table.")
+    conn.commit()
 except Exception as e:
     print(f"Error: {str(e)}")
 
