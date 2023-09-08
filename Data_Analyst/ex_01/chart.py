@@ -49,8 +49,8 @@ try:
     plt.plot(dates, counts, linestyle='-')
     plt.ylabel("Number of customers")
     plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, pos: f'{int(x / 10)}'))
-    tick_positions = [0, len(dates) // 4, 2 * len(dates) // 4, 3 * len(dates) // 4, len(dates) - 1]
-    tick_labels = ["Oct", "Nov", "Dec", "Jan", "Feb"]
+    tick_positions = [0, len(dates) // 4, 2 * len(dates) // 4, 3 * len(dates) // 4]
+    tick_labels = ["Oct", "Nov", "Dec", "Jan"]
     plt.xticks(tick_positions, tick_labels)
     plt.xlim(dates[0], dates[-1])
     plt.show()
