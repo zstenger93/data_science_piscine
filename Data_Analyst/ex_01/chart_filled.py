@@ -1,6 +1,6 @@
 import psycopg2
+import numpy as np
 import matplotlib.pyplot as plt
-from datetime import datetime
 from collections import defaultdict
 
 dbname = "piscineds"
@@ -41,7 +41,7 @@ try:
     
     dates = list(daily_sales.keys())
     
-    average_spend_per_customer = [daily_sales[date] / daily_purchases[date] for date in dates]
+    average_spend_per_customer = [daily_sales[date] / daily_purchases[date] * 10 for date in dates]
     
     plt.figure(figsize=(10, 6))
     plt.plot(dates, average_spend_per_customer, linestyle='-')
@@ -50,6 +50,7 @@ try:
     tick_positions = [0, len(dates) // 4, 2 * len(dates) // 4, 3 * len(dates) // 4]
     tick_labels = ["Oct", "Nov", "Dec", "Jan"]
     plt.xticks(tick_positions, tick_labels)
+    plt.yticks(np.arange(0, max(average_spend_per_customer) + 1, 5))
     plt.xlim(dates[0], dates[-1])
     plt.ylim(0)
     plt.show()

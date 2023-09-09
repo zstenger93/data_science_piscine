@@ -1,8 +1,7 @@
 import psycopg2
-import matplotlib.pyplot as plt
 from datetime import datetime
+import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-from matplotlib.dates import MonthLocator, DateFormatter
 
 dbname = "piscineds"
 user = "zstenger"

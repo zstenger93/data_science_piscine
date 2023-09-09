@@ -1,8 +1,7 @@
 import psycopg2
-import matplotlib.pyplot as plt
 from datetime import datetime
+import matplotlib.pyplot as plt
 from collections import defaultdict
-from matplotlib.ticker import ScalarFormatter
 
 dbname = "piscineds"
 user = "zstenger"
