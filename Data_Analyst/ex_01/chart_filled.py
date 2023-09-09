@@ -51,6 +51,7 @@ try:
     tick_labels = ["Oct", "Nov", "Dec", "Jan"]
     plt.xticks(tick_positions, tick_labels)
     plt.xlim(dates[0], dates[-1])
+    plt.ylim(0)
     plt.show()
 except Exception as e:
     print(f"Error: {e}")
