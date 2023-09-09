@@ -63,7 +63,7 @@ try:
                 patch_artist=True)
     ax2.set_yticks([])
     ax2.set_xlabel("Price")
-    ax2.set_title("Central Part of Box Plot")
+    ax2.set_title("Interquartile range (IQR)")
 
     plt.tight_layout()
     plt.show()
