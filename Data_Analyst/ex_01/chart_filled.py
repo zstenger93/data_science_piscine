@@ -41,17 +41,16 @@ try:
     
     dates = list(daily_sales.keys())
     
-    # Calculate average spend per customer for each day
-    average_spend_per_customer = [daily_sales[date] / daily_purchases[date] if daily_purchases[date] != 0 else 0 for date in dates]
+    average_spend_per_customer = [daily_sales[date] / daily_purchases[date] for date in dates]
     
     plt.figure(figsize=(10, 6))
     plt.plot(dates, average_spend_per_customer, linestyle='-')
+    plt.fill_between(dates, average_spend_per_customer, color='blue', alpha=0.3)
     plt.ylabel("Average Spend/Customer (in Altairian Dollars)")
     tick_positions = [0, len(dates) // 4, 2 * len(dates) // 4, 3 * len(dates) // 4]
     tick_labels = ["Oct", "Nov", "Dec", "Jan"]
     plt.xticks(tick_positions, tick_labels)
     plt.xlim(dates[0], dates[-1])
-    
     plt.show()
 except Exception as e:
     print(f"Error: {e}")
