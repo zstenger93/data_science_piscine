@@ -21,7 +21,6 @@ try:
     cursor = conn.cursor()
     cursor.execute(sql_script)
     print("SQL script executed successfully!")
-    data = cursor.fetchall()
     print("Data has been fetched from the table.")
     conn.commit()
 except Exception as e:
