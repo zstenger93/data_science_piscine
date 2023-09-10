@@ -30,39 +30,33 @@ try:
     cursor.close()
     conn.close()
 
-    # Number of Orders Bar Chart (Frequency)
-    order_frequency = defaultdict(int)
-    for user_id, event_time, event_type, price in data:
-        if event_type == 'purchase':
-            # Convert the event_time timestamp to a datetime object
-            event_time = datetime.utcfromtimestamp(event_time)
-            # Ensure event_time is in the format '%Y-%m-%d'
-            date_str = event_time.strftime('%Y-%m-%d')
-            order_frequency[date_str] += 1
-
-    order_dates = list(order_frequency.keys())
-    order_counts = list(order_frequency.values())
-
-    plt.figure(figsize=(10, 6))
-    plt.bar(order_dates, order_counts)
-    plt.xlabel("Frequency")
-    plt.ylabel("Number of Customers")
-    plt.title("Number of Orders by Frequency")
-
-    # Altairian Dollars Spent Bar Chart
+    total_customers_per_day = defaultdict(int)  # Using defaultdict to initialize counts to 0
     customer_spending = defaultdict(float)
-    for user_id, event_time, event_type, price in data:
+
+    for row in data:
+        event_time, user_id, event_type, price = row
         if event_type == 'purchase':
             customer_spending[user_id] += price
+            if event_time.month == 10:
+                total_customers_per_day[event_time.day] += 1  # Increment the count for each purchase
+
+    days_in_october = list(total_customers_per_day.keys())
+    total_customer_counts = [count for count in total_customers_per_day.values()]
 
     customer_ids = list(customer_spending.keys())
-    customer_total_spending = list(customer_spending.values())
+    spending_values = list(customer_spending.values())
 
-    plt.figure(figsize=(10, 6))
-    plt.bar(customer_ids, customer_total_spending)
-    plt.xlabel("Customer IDs")
-    plt.ylabel("Altairian Dollars Spent")
-    plt.title("Altairian Dollars Spent by Customers")
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+    ax1.bar(days_in_october, total_customer_counts, color='skyblue')
+    ax1.set_xlabel('frequency')
+    ax1.set_ylabel('customers')
+    ax1.grid(axis='y', linestyle='--', alpha=0.7)
+
+    ax2.bar(spending_values, customer_ids, color='skyblue')
+    ax2.set_xlabel('monetary value in A')
+    ax2.set_ylabel('customers')
+    ax2.grid(axis='y', linestyle='--', alpha=0.7)
 
     plt.tight_layout()
     plt.show()
