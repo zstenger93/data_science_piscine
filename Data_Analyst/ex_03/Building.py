@@ -30,7 +30,7 @@ try:
     cursor.close()
     conn.close()
 
-    total_customers_per_day = defaultdict(int)  # Using defaultdict to initialize counts to 0
+    total_customers_per_day = defaultdict(int)
     customer_spending = defaultdict(float)
 
     for row in data:
@@ -38,7 +38,7 @@ try:
         if event_type == 'purchase':
             customer_spending[user_id] += price
             if event_time.month == 10:
-                total_customers_per_day[event_time.day] += 1  # Increment the count for each purchase
+                total_customers_per_day[event_time.day] += 1
 
     days_in_october = list(total_customers_per_day.keys())
     total_customer_counts = [count for count in total_customers_per_day.values()]
