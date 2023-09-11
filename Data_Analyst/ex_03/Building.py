@@ -29,9 +29,6 @@ try:
     cursor.close()
     conn.close()
 
-    total_customers_per_day = defaultdict(int)
-    customer_spending = defaultdict(float)
-
     for row in data:
         event_time, user_id, event_type, price = row
 
