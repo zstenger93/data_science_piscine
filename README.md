@@ -32,6 +32,14 @@ ex 02 creating a box plot and another from the Interquartile range (IQR) of the 
 
 ex 03 instant braindamage
 
+ex 04
+
+ex 05
+
+## Day 3 Data Scientist 1
+
+## Day 4 Data Scientist 1
+
 # A few alias/command to make things fast, or at least faster than python
 
 ## up alias as:
