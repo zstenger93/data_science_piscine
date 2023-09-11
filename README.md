@@ -24,7 +24,13 @@ ex 03 we merge the items table into the customers table but be careful, the item
 
 ## Day 2 Data Analyst
 
-ex 00 we create a pie chart from the event types, the pdf asks to use the data without removing the duplicates which makes no sense so we used the cleared datatable
+ex 00 we create a pie chart from the event types. For this day the pdf asks to use the data without removing the duplicates which makes no sense so we used the cleared datatable
+
+ex 01 to create a plot for the number of customers during the time period from the data, a histogram for the total sales in each month and another plot with the average spend/cutomer/month which is filled up
+
+ex 02 creating a box plot and another from the Interquartile range (IQR) of the box plot
+
+ex 03 instant braindamage
 
 # A few alias/command to make things fast, or at least faster than python
 
