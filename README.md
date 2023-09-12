@@ -40,6 +40,16 @@ In cluster analysis, the elbow method is a heuristic used in determining the num
 
 The elbow method is considered both subjective and unreliable. In many practical applications, the choice of an "elbow" is highly ambiguous as the plot does not contain a sharp elbow.
 
+`WSS = Σ (i=1 to k) Σ (j=1 to n_i) ||x_ij - c_i||^2`
+
+Where:
+
+`WSS` is the within-cluster sum of squares.
+`k` is the number of clusters.
+`n_i` is the number of data points in cluster `i`.
+`x_ij` is the `j`-th data point in cluster `i`.
+`c_i` is the centroid of cluster `i`.
+
 ex 05
 
 ## Day 3 Data Scientist 1
