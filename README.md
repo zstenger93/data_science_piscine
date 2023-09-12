@@ -45,9 +45,13 @@ The elbow method is considered both subjective and unreliable. In many practical
 Where:
 
 `WSS` is the within-cluster sum of squares.
+
 `k` is the number of clusters.
+
 `n_i` is the number of data points in cluster `i`.
+
 `x_ij` is the `j`-th data point in cluster `i`.
+
 `c_i` is the centroid of cluster `i`.
 
 ex 05
