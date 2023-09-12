@@ -4,9 +4,9 @@
 
 Since postgres is not available on our Mac's and we are allergic to VM's we decided to run things on docker
 
-I recommend move all of your database csv files to the docker image and not trying to access it from outside which will reduce your headaches a bit and as well executing all the queries directly on the postgres database which for creating the 5 table takes ~35 sec compared to 8.5 min otherwise. 
+I recommend move all of your database csv files to the docker image and not trying to access it from outside which will reduce your headaches a bit and as well executing all the `queries directly on the postgres database` which for creating the 5 table takes ~35 sec compared to 8.5 min otherwise. 
 
-`ex 00` and `01` was just about to create the docker-compose file which run 2 service, postgres for database and pgadmin to handle and see the db easier
+`ex 00` and `01` was just about to create the docker-compose file which runs 2 service, `postgres` for database and `pgadmin` to handle and see the db easier
 
 `ex 02` we created our first data table where I quickly realized doing things NOT ON the database make it significantly slower so first I connect to the postgres database and run my sql code directly on the database which made a table creation 7 second instead of 1,5-2 minute
 
