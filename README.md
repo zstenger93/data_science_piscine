@@ -32,7 +32,13 @@ ex 02 creating a box plot and another from the Interquartile range (IQR) of the 
 
 ex 03 instant braindamage
 
-ex 04
+ex 04 Elbow Method
+
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters)
+
+In cluster analysis, the elbow method is a heuristic used in determining the number of clusters in a data set. The method consists of plotting the explained variation as a function of the number of clusters and picking the elbow of the curve as the number of clusters to use.
+
+The elbow method is considered both subjective and unreliable. In many practical applications, the choice of an "elbow" is highly ambiguous as the plot does not contain a sharp elbow.
 
 ex 05
 
