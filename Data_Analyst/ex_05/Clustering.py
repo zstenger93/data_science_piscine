@@ -10,7 +10,7 @@ host = "localhost"
 port = "5432"
 
 try:
-    with open("elbow.sql", "r") as sql_file:
+    with open("Clustering.sql", "r") as sql_file:
         sql_script = sql_file.read()
     print("SQL code has been imported!")
     conn = psycopg2.connect(
@@ -30,14 +30,6 @@ try:
     cursor.close()
     conn.close()
 
-    wss = []
-    for k in range(1, 11):
-        kmeans = KMeans(n_clusters=k, random_state=0, n_init=10).fit(data)
-        wss.append(kmeans.inertia_)
-
-    plt.plot(range(1, 11), wss)
-    plt.xlabel("Number of clusters")
-    plt.title("The Elbow Method")
-    plt.show()
+    
 except Exception as e:
     print(f"Error: {e}")
