@@ -18,21 +18,25 @@ I recommend move all of your database csv files to the docker image and not tryi
 
 `ex 00` create all the tables again from previous day with one extra from this subject.
 
-`ex 01` we merge all data from 2022 oct until 2023 feb into a customers table keeping all the duplicates
+`ex 01` we merge all data from 2022 oct until 2023 feb into a customers table `keeping all the duplicates`
 
-`ex 02` we remove all the duplicate rows from table
+`ex 02` now, remove all the duplicate rows from table
 
-`ex 03` we merge the items table into the customers table but be careful, the items table has duplicates as well, so you should group those duplicates before adding the values to the customers table with the matching id's
+`ex 03` we merge the items table into the customers table but be careful, the `items table has duplicates as well`, so you should `group` those duplicates before adding the values to the customers table with the matching id's
 
 ## Day 2 Data Analyst
 
-`ex 00` we create a pie chart from the event types. For this day the pdf asks to use the data without removing the duplicates which makes no sense so we used the cleared datatable
+`ex 00` we create a `pie chart` from the event types. For this day the pdf asks to use the data without removing the duplicates which makes no sense so we used the cleared datatable
 
-`ex 01` to create a plot for the number of customers during the time period from the data, a histogram for the total sales in each month and another plot with the average spend/cutomer/month which is filled up
+`ex 01` to create a `plot` for the number of customers during the time period from the data, a `histogram` for the `total sales in each month` and another `plot` with the `average spend/cutomer/month` which is filled up
 
-`ex 02` creating a box plot and another from the Interquartile range (IQR) of the box plot
+`ex 02` creating a `box plot` and another from the `Interquartile range (IQR)` of the box plot
 
 `ex 03` instant braindamage
+
+The frequency will be the `count of purchases`, `grouped` by the `user_id` while the count is below 30 `ordered` with `DESC`
+
+The monetary value will be the `sum` of prices `grouped` by `user_id` and the sum is below 200, `ordered` by the total
 
 `ex 04` Elbow Method
 
