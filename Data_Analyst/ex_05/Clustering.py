@@ -33,7 +33,7 @@ try:
 
     groups = [row[0] for row in data]
     counts = [int(row[1]) for row in data]
-    colors = ['grey', 'red', 'green', 'gold', 'green']
+    colors = ['teal', 'gold', 'silver', 'red', 'grey']
 
     plt.figure(figsize=(20, 8))
     plt.barh(groups, counts)
