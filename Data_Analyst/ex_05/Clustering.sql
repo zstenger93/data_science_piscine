@@ -1,37 +1,26 @@
-WITH time_groups AS (
+SELECT DISTINCT
+    CASE
+        WHEN purchase_months = 5 THEN 'loyal platinum'
+        WHEN purchase_months = 4 THEN 'loyal gold'
+        WHEN purchase_months = 3 THEN 'loyal silver'
+        WHEN purchase_months = 2 THEN 'new customer'
+        WHEN purchase_months = 1 AND NOT (purchase_month = 1 OR purchase_month = 2) THEN 'inactive'
+        WHEN purchase_months = 1 THEN 'new customer'
+    END AS purchase_months_category,
+    COUNT(DISTINCT user_id) AS customer_count
+FROM (
     SELECT
         user_id,
-		event_type,
-        CASE
-            WHEN EXTRACT(MONTH FROM MAX(event_time)) - EXTRACT(MONTH FROM MIN(event_time)) < 1 THEN 1
-            WHEN EXTRACT(MONTH FROM MAX(event_time)) - EXTRACT(MONTH FROM MIN(event_time)) < 2 THEN 2
-            WHEN EXTRACT(MONTH FROM MAX(event_time)) - EXTRACT(MONTH FROM MIN(event_time)) < 3 THEN 3
-            ELSE 4
-        END AS time_group
+        COUNT(DISTINCT EXTRACT(MONTH FROM event_time)) AS purchase_months,
+        EXTRACT(MONTH FROM MIN(event_time)) AS purchase_month
     FROM
         customers
+    WHERE
+        event_type = 'purchase'
     GROUP BY
-        user_id, event_type
-),
-event_groups AS (
-    SELECT
-        user_id,
-        event_type,
-        CASE
-            WHEN COUNT(DISTINCT event_type) = 1 AND MIN(event_type) = 'view' THEN 4
-            ELSE time_group
-        END AS event_group
-    FROM
-        time_groups
-    GROUP BY
-        user_id, event_type, time_group
-)
-SELECT
-    event_group AS time_group,
-    COUNT(user_id) AS user_count
-FROM
-    event_groups
+        user_id
+) AS purchase_counts
 GROUP BY
-    event_group
+    purchase_months_category
 ORDER BY
-    user_count DESC, event_group;
+	customer_count;
