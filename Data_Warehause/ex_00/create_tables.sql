@@ -97,3 +97,23 @@ BEGIN
       COPY data_2023_jan FROM '/tmp/data_2023_jan.csv' CSV HEADER;
    END IF;
 END $$;
+
+DO $$ 
+BEGIN
+   IF NOT EXISTS (
+      SELECT 1
+      FROM information_schema.tables
+      WHERE table_name = 'items'
+   ) THEN
+      CREATE TABLE data_2023_jan (
+         event_time TIMESTAMP,
+         event_type VARCHAR(255),
+         product_id INT,
+         price FLOAT,
+         user_id BIGINT,
+         user_session UUID
+      );
+      
+      COPY data_2023_jan FROM '/tmp/item.csv' CSV HEADER;
+   END IF;
+END $$;

@@ -3,3 +3,4 @@ docker cp /Users/zstenger/goinfre/subject/customer/data_2022_nov.csv postgres:/t
 docker cp /Users/zstenger/goinfre/subject/customer/data_2022_oct.csv postgres:/tmp/data_2022_oct.csv
 docker cp /Users/zstenger/goinfre/subject/customer/data_2023_jan.csv postgres:/tmp/data_2023_jan.csv
 docker cp /Users/zstenger/goinfre/subject/customer/data_2023_feb.csv postgres:/tmp/data_2023_feb.csv
+docker cp /Users/zstenger/goinfre/subject/item/item.csv postgres:/tmp/item.csv
