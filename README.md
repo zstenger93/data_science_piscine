@@ -1,10 +1,10 @@
 # data_science_piscine
 
-## Day 0 Data Engineer
-
 Since postgres is not available on our Mac's and we are allergic to VM's we decided to run things on docker
 
 I recommend move all of your database csv files to the docker image and not trying to access it from outside which will reduce your headaches a bit and as well executing all the `queries directly on the postgres database` which for creating the 5 table takes ~35 sec compared to 8.5 min otherwise. 
+
+## Day 0 Data Engineer
 
 `ex 00` and `01` was just about to create the docker-compose file which runs 2 service, `postgres` for database and `pgadmin` to handle and see the db easier
 
