@@ -9,7 +9,7 @@ port = "5432"
 try:
     with open("fusion.sql", "r") as sql_file:
         sql_script = sql_file.read()
-    print("SQL code have been imported!")
+    print("SQL code has been imported!")
     conn = psycopg2.connect(
         dbname=dbname,
         user=user,

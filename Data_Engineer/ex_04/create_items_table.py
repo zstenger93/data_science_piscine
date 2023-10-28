@@ -19,7 +19,7 @@ def load(path, tableName):
             print(f"\033[1;33mTable {tableName} doesn't exist, creating...\033[0;39m")
             data = pd.read_csv(path)
             data_types = {
-                "pruduct_id": sqlalchemy.types.Integer(),
+                "product_id": sqlalchemy.types.Integer(),
                 "category_id": sqlalchemy.types.BigInteger(),
                 "category_code": sqlalchemy.types.String(length=255),
                 "brand": sqlalchemy.types.String(length=255)
