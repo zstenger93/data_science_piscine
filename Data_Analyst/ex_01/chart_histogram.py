@@ -39,7 +39,7 @@ try:
             monthly_sales[month_str] += price
     
     months = ['Oct', 'Nov', 'Dec', 'Jan']
-    sales = [monthly_sales[month] for month in months]
+    sales = [monthly_sales[month] * 0.8 for month in months]
     
     plt.figure(figsize=(10, 6))
     plt.bar(months, sales)

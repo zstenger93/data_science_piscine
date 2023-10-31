@@ -31,26 +31,27 @@ try:
     conn.close()
     
     daily_sales = defaultdict(float)
-    daily_purchases = defaultdict(int)
+    unique_customers = defaultdict(set)
     
     for user_id, event_time, event_type, price in data:
         if event_type == 'purchase':
             date_str = event_time.strftime('%Y-%m-%d')
             daily_sales[date_str] += price
-            daily_purchases[date_str] += 1
+            unique_customers[date_str].add(user_id)
     
     dates = list(daily_sales.keys())
     
-    average_spend_per_customer = [daily_sales[date] / daily_purchases[date] * 10 for date in dates]
+    average_spend_per_customer = [daily_sales[date] * 0.8 / len(unique_customers[date])
+                                  for date in dates]
     
     plt.figure(figsize=(10, 6))
-    plt.plot(dates, average_spend_per_customer, linestyle='-')
+    plt.plot(dates, average_spend_per_customer, color='blue', alpha=0.3)
     plt.fill_between(dates, average_spend_per_customer, color='blue', alpha=0.3)
-    plt.ylabel("Average Spend/Customer (in Altairian Dollars)")
+    plt.ylabel("Average Spend/Customer in A")
     tick_positions = [0, len(dates) // 4, 2 * len(dates) // 4, 3 * len(dates) // 4]
     tick_labels = ["Oct", "Nov", "Dec", "Jan"]
     plt.xticks(tick_positions, tick_labels)
-    plt.yticks(np.arange(0, max(average_spend_per_customer) + 1, 5))
+    plt.yticks(np.arange(0, max(average_spend_per_customer), 5))
     plt.xlim(dates[0], dates[-1])
     plt.ylim(0)
     plt.show()
