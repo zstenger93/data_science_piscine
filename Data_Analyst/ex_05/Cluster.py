@@ -1,7 +1,8 @@
 import psycopg2
-import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 
 dbname = "piscineds"
 user = "zstenger"
@@ -33,31 +34,31 @@ try:
     cursor.close()
     conn.close()
 
-    dataframe = pd.DataFrame(data, columns=['Month', 'Day', 'User_ID'])
+    categories = [row[0] for row in data]
+    user_counts = [int(row[1]) for row in data]
+    data = [(row[2], row[3], row[4]) for row in data]
 
-    # Calculate centroids (average month) for each unique month
-    unique_months = dataframe['Month'].unique()
-    centroids = []
-    for month in unique_months:
-        centroid_month = dataframe[dataframe['Month'] == month]['Month'].mean()
-        centroids.append(centroid_month)
+    scaler = StandardScaler()
+    scaled_data = scaler.fit_transform(data)
 
-    # Apply K-Means clustering
-    kmeans = KMeans(n_clusters=len(centroids), random_state=0, n_init=10)
-    clusters = kmeans.fit_predict(dataframe[['Month', 'Day']])
+    
+    num_clusters = 5 
+    kmeans = KMeans(n_clusters=num_clusters, random_state=42, n_init = 10)
+    cluster_labels = kmeans.fit_predict(scaled_data)
 
-    # Add cluster assignments to the DataFrame
-    dataframe['Cluster'] = clusters
+    plt.figure(figsize=(10, 6))
+    for i in range(num_clusters):
+        cluster_points = np.array([data[j] for j in range(len(data)) if cluster_labels[j] == i])
+        plt.scatter(cluster_points[:, 0], cluster_points[:, 1], s=100, alpha=0.7, label=f'Cluster {i+1}')
 
-    # Extract cluster centers (centroids)
-    centroids = kmeans.cluster_centers_
+    for i, txt in enumerate(categories):
+        plt.annotate(f"{txt}\n{user_counts[i]} user", (data[i][0], data[i][1]), fontsize=10, ha='center')
 
-    # Visualize the clusters and centroids
-    plt.scatter(dataframe['Month'], dataframe['Day'], c=dataframe['Cluster'], cmap='rainbow', marker='o', alpha=0.5)
-    plt.scatter(centroids[:, 0], centroids[:, 1], c='black', marker='X', s=100)
-    plt.title('K-Means Clustering with Centroids (One for Each Month)')
-    plt.xlabel('Month')
-    plt.ylabel('Day')
+    plt.xlabel("Months Purchased")
+    plt.ylabel("Average Purchase Frequency")
+    plt.title("Cluster Visualization")
+    plt.legend()
+    plt.grid(True)
     plt.show()
 
 except Exception as e:
