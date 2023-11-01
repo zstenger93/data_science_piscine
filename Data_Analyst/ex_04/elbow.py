@@ -31,7 +31,7 @@ try:
     conn.close()
 
     wss = []
-    for k in range(1, 11):
+    for k in range(1, 10):
         kmeans = KMeans(n_clusters=k, random_state=0, n_init=10).fit(data)
         wss.append(kmeans.inertia_)
 

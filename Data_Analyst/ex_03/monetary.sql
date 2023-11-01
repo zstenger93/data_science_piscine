@@ -1,6 +1,5 @@
-SELECT user_id, SUM(price) AS purchases
+SELECT user_id, SUM(price)
 FROM customers
 WHERE event_type = 'purchase'
 GROUP BY user_id
-HAVING SUM(price) < 200
-ORDER BY purchases;
+HAVING SUM(price) < 225;

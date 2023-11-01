@@ -34,7 +34,7 @@ try:
     cursor.close()
     conn.close()
 
-    frequency = [row[1] for row in data_frequency]
+    frequency = [row[1] for row in data_frequency if row[1] <= 40]
     monetary = [row[1] for row in data_monetary]
 
     fig, axs = plt.subplots(1, 2, figsize=(15, 6))
@@ -43,15 +43,21 @@ try:
     axs[0].hist(frequency, bins=5, edgecolor='k')
     axs[0].set_ylabel('customers')
     axs[0].set_xlabel('frequency')
+    axs[0].set_xticks(range(0, 39, 10))
+    axs[0].set_ylim(0, 60000)
+    axs[0].set_title('Frequency distribution of the number of orders per customer')
 
     axs[1].grid(True, zorder=-1)
     axs[1].hist(monetary, bins=5, edgecolor='k')
-    axs[1].set_ylabel('customers')
-    axs[1].set_xlabel('monetary value in A')
+    axs[1].set_ylabel('Count of customers')
+    axs[1].set_xlabel('Monetary value in Altairian Dollars (A$)')
+    axs[1].set_title('Frequency distribution of the purchase prices per customer')
 
     for ax in axs:
         ax.yaxis.grid(True, linestyle='-', alpha=0.7)
         ax.set_axisbelow(True)
+
+    plt.tight_layout()
     plt.show()
 
 except Exception as e:
