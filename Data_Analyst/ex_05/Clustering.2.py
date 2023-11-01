@@ -44,13 +44,12 @@ try:
 
     normalized_circle_sizes = [count / max(user_counts) * 300 for count in user_counts]
 
-    # Plotting the filled circles and annotations on the graph
     plt.figure(figsize=(10, 6))
     for i, category in enumerate(categories):
         plt.scatter(months_purchased[i], avg_purchase_frequency[i], s=normalized_circle_sizes[i], c=[unique_colors[i]], alpha=0.7)
         plt.annotate(f"{category}\n{user_counts[i]} user", (months_purchased[i] - 0.5, avg_purchase_frequency[i] - 0.1), 
                     fontsize=10, ha='center')
-    # plt.ylim(-8, 22)
+    
     plt.xticks(np.arange(0, max(months_purchased) + 1, step=1))
     plt.xlabel("Months Purchased In")
     plt.ylabel("Average Purchase Frequency")

@@ -10,7 +10,7 @@ host = "localhost"
 port = "5432"
 
 try:
-    with open("chart_filled.sql", "r") as sql_file:
+    with open("chart.2.sql", "r") as sql_file:
         sql_script = sql_file.read()
     print("SQL code has been imported!")
     conn = psycopg2.connect(
