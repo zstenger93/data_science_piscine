@@ -9,7 +9,7 @@ host = "localhost"
 port = "5432"
 
 try:
-    with open("Clu.sql", "r") as sql_file:
+    with open("Clustering.2.sql", "r") as sql_file:
         sql_script = sql_file.read()
 
     print("SQL code has been imported!")
