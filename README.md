@@ -30,13 +30,13 @@ I recommend move all of your database csv files to the docker image and not tryi
 
 `ex 01` to create a `plot` for the number of customers during the time period from the data, a `histogram` for the `total sales in each month` and another `plot` with the `average spend/cutomer/month` which is filled up
 
-`ex 02` creating a `box plot` and another from the `Interquartile range (IQR)` of the box plot
+`ex 02` creating a `box plot`, another from the `Interquartile range (IQR)` of the box plot, and at the third one you will rethink your lifedecisions
 
 `ex 03` instant braindamage
 
-The frequency will be the `count of purchases`, `grouped` by the `user_id` while the count is below 30 `ordered` with `DESC`
+The frequency will be the `count of purchases`, `grouped` by the `user_id`
 
-The monetary value will be the `sum` of prices `grouped` by `user_id` and the sum is below 200, `ordered` by the total
+The monetary value will be the `sum` of prices `grouped` by `user_id` and the sum is below 225, `ordered` by the total
 
 `ex 04` Elbow Method
 
@@ -60,7 +60,9 @@ Where:
 
 `c_i` is the centroid of cluster `i`.
 
-`ex 05`
+`ex 05` CLustering algorithms
+
+You are required to use clustering algorithms to create at least 2 plot from the website customers grouped by let's say, their activity on the website, how many times did they purchase something, are they loyal customers or just bought something once, etc.
 
 ## Day 3 Data Scientist 1
 
