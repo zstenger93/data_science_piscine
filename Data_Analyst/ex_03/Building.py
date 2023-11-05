@@ -8,9 +8,9 @@ host = "localhost"
 port = "5432"
 
 try:
-    with open("frequency.sql", "r") as sql_file:
+    with open("Building.sql", "r") as sql_file:
         sql_script1 = sql_file.read()
-    with open("monetary.sql", "r") as sql_file:
+    with open("Building.1.sql", "r") as sql_file:
         sql_script2 = sql_file.read()
     print("SQL code has been imported!")
 
